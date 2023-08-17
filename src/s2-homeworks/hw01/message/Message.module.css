@@ -3,11 +3,17 @@
 }
 
 .imageAndText {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    padding-right: 40px;
 }
 
 .imageAndText img {
-
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
 }
 
 .text {

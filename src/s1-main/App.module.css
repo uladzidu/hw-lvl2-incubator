@@ -3,9 +3,12 @@
 }
 
 .hw {
-
+    width: 1280px;
+    border: solid #D9D9D9 1px;
+    padding: 20px;
+    margin: 0 auto;
 }
 
 .hwTitle {
-
+    font-size: 22px;
 }
