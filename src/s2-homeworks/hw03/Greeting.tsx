@@ -1,15 +1,15 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react'
+import React from 'react'
 import s from './Greeting.module.css'
 
 type GreetingPropsType = {
-    name: any // need to fix any
-    setNameCallback: any // need to fix any
-    addUser: any // need to fix any
-    onBlur: any // need to fix any
-    onEnter: any // need to fix any
-    error: any // need to fix any
-    totalUsers: any // need to fix any
-    lastUserName?: any // need to fix any
+    name: string // need to fix any
+    setNameCallback: (e: React.ChangeEvent<HTMLInputElement>) => void // need to fix any
+    addUser: () => void // need to fix any
+    onBlur: () => void // need to fix any
+    onEnter: (e: React.KeyboardEvent<HTMLInputElement>) => void // need to fix any
+    error: string // need to fix any
+    totalUsers: number // need to fix any
+    lastUserName?: string | null // need to fix any
 }
 
 // презентационная компонента (для верстальщика)
@@ -61,7 +61,7 @@ const Greeting: React.FC<GreetingPropsType> = (
                 </button>
             </div>
 
-            {lastUserName && (
+            {!error && lastUserName && (
                 <div className={s.greeting}>
                     Привет <span id={'hw3-last-user'}>{lastUserName}</span>!
                 </div>
