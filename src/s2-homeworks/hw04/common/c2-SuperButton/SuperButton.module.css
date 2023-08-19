@@ -1,22 +1,41 @@
 .button {
+    width: 132px;
+    height: 30px;
+    top: 1465px;
+    padding: 5px 24px 5px 24px;
+    border-radius: 3px;
+    gap: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.button:first-letter{
+    text-transform: uppercase;
 }
 
 .disabled {
+    color: grey;
+    background-color: lightgray;
 }
 
 .secondary {
+    background-color: cornflowerblue;
 }
 
 .default {
+    background-color: #0066CC;
 }
 
 .red {
+    background-color: #CC1439;
 }
 
 .default:hover {
 }
 
 .red:hover {
+    background-color: black;
+    content: "Clicked!";
 }
 
 .secondary:hover {
@@ -30,6 +49,9 @@
 }
 
 .red:active {
+    background-color: white;
+    color: black;
+    content: 'wqeqweqweqw';
 }
 
 .button:disabled {
