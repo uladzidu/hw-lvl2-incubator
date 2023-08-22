@@ -1,12 +1,15 @@
 .button {
-    width: 132px;
     height: 30px;
-    top: 1465px;
     padding: 5px 24px 5px 24px;
     border-radius: 3px;
-    gap: 10px;
     cursor: pointer;
     color: white;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: left;
 }
 
 .button:first-letter{
@@ -19,7 +22,9 @@
 }
 
 .secondary {
-    background-color: cornflowerblue;
+    border: 1px solid #0066CC;
+    background-color: #fff;
+    color: #0066CC;
 }
 
 .default {
