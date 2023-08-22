@@ -11,4 +11,14 @@
 
 .hwTitle {
     font-size: 22px;
+    margin: 30px 142px;
+    width: 165px;
+    height: 27px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 27px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #000000;
+
 }
