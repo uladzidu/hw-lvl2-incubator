@@ -69,7 +69,6 @@ const SuperRadio: React.FC<SuperRadioPropsType> = ({
           ))
         : []
 
-    console.log('radioValue' , value)
 
     return <div className={s.options}>{mappedOptions}</div>
 }
