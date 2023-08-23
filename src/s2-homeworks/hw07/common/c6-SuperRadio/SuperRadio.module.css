@@ -1,4 +1,9 @@
 .radio {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+
 }
 
 .radio::before {
@@ -6,10 +11,26 @@
 
 
 .radio:checked::before {
+
 }
 
 .label {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .options {
+
+}
+
+.span {
+    font-family: Montserrat,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: left;
+
 }
