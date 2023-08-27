@@ -18,6 +18,5 @@ html {
     color: var(--color);
 }
 
-.select {
-
+.select:first-letter {
 }
