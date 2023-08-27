@@ -12,7 +12,7 @@ function Clock() {
     const start = () => {
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
-        // stop()
+        stop()
         const id: number = window.setInterval(() => {
             setDate(new Date())
         }, 1000)
@@ -42,43 +42,39 @@ function Clock() {
         return date.getSeconds() <= 9 ? '0' + date.getSeconds() : date.getSeconds()
     }
 
-    const getDay = () => {
-        return date.getDay() <= 9 ? '0' + date.getDay() : date.getDay()
+    const getCurrentDay = () => {
+        return date.getDate() <= 9 ? '0' + date.getDate() : date.getDate();
     }
     const getNumberOfMonth = () => {
-        return date.getMonth() <= 9 ? '0' + date.getMonth() : date.getMonth()
+        const finalNumber = date.getMonth() + 1
+        return finalNumber <= 9 ? '0' + finalNumber : finalNumber;
     }
     const getFullYear = () => {
-        return date.getFullYear() <= 9 ? '0' + date.getFullYear() : date.getFullYear()
+        return date.getFullYear() <= 9 ? '0' + date.getFullYear() : date.getFullYear();
     }
 
-    const dayOfTheWeek = () : string => {
+    const dayOfTheWeek = (): string => {
 
         const day = date.getDay()
-        const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',]
 
-        return days[day-1]
+        return days[day]
     }
 
-    const getMonth = () : string => {
+    const getMonth = (): string => {
 
-        const currentMonth = date.getDay()
+        const currentMonth = date.getMonth()
         const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
         return month[currentMonth]
     }
 
     const stringTime = `${getHours()}:${getMinutes()}:${getSeconds()}` || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = `${getDay()}.${getNumberOfMonth()}.${getFullYear()}` || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const stringDate = `${getCurrentDay()}.${getNumberOfMonth()}.${getFullYear()}` || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
     const stringDay = dayOfTheWeek() || <br/> // пишут студенты
     const stringMonth = getMonth() || <br/> // пишут студенты
-
-    useEffect( () => {
-        setDate(new Date(Date.now()))
-        console.log(new Date(Date.now()))
-    },[] )
 
     return (
         <div className={s.clock}>
@@ -112,14 +108,14 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={false} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={timerId !== undefined} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={false} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={timerId === undefined} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
                     stop
