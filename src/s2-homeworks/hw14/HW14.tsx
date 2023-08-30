@@ -18,26 +18,28 @@ const getTechs = (find: string) => {
         .get<{ techs: string[] }>(
             'https://samurai.it-incubator.io/api/3.0/homework/test2',
             {params: {find}}
-        )
+        ) // делаем запрос на сервак с параметром find
         .catch((e) => {
             alert(e.response?.data?.errorText || e.message)
+            console.log(e)
         })
 }
 
 const HW14 = () => {
-    const [find, setFind] = useState('')
-    const [isLoading, setLoading] = useState(false)
-    const [searchParams, setSearchParams] = useSearchParams()
-    const [techs, setTechs] = useState<string[]>([])
+    const [find, setFind] = useState('');
+    const [isLoading, setLoading] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [techs, setTechs] = useState<string[]>([]);
+
+    console.log('SEARCH PARAMS', searchParams)
 
     const sendQuery = (value: string) => {
         setLoading(true)
         getTechs(value)
             .then((res) => {
                 // делает студент
-
                 // сохранить пришедшие данные
-
+                setTechs(res?.data.techs || []) // сетаем пришедшие данные в массив технологий
                 //
             })
     }
@@ -45,15 +47,14 @@ const HW14 = () => {
     const onChangeText = (value: string) => {
         setFind(value)
         // делает студент
-
         // добавить/заменить значение в квери урла
-        // setSearchParams(
-
+        // sendQuery(value)
+        setSearchParams(value)
         //
     }
 
     useEffect(() => {
-        const params = Object.fromEntries(searchParams)
+        const params = Object.fromEntries(searchParams) // makes object from array of pair values
         sendQuery(params.find || '')
         setFind(params.find || '')
     }, [])

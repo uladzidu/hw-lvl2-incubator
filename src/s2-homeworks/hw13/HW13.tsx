@@ -45,8 +45,9 @@ const HW13 = () => {
                 const errorData = e.response.data;
                 setInfo(errorData ? errorData.info : e.name);
                 setText(errorData ? errorData.errorText : e.message);
-                setCode(errorData ? errorData.status : 'Error!');
-
+                setCode(errorData ? e.response.status : 'Error!');
+                console.log(e)
+                console.log(e.response.status)
                 if (e.response.status === 500) {
                     setImage(error500)
                 } else if (e.response.status === 400) {
