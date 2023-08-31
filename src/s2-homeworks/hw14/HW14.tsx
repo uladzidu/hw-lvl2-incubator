@@ -31,7 +31,7 @@ const HW14 = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [techs, setTechs] = useState<string[]>([]);
 
-    console.log('SEARCH PARAMS', searchParams)
+
 
     const sendQuery = (value: string) => {
         setLoading(true)
@@ -48,7 +48,6 @@ const HW14 = () => {
         setFind(value)
         // делает студент
         // добавить/заменить значение в квери урла
-        // sendQuery(value)
         setSearchParams(value)
         //
     }
