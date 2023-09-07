@@ -1,9 +1,11 @@
 import React from 'react'
+import iconDown from './Polygon 5.png'
+import iconUp from './Polygon 2.png'
 
 // добавить в проект иконки и импортировать
-const downIcon = '[\\/]'
-const upIcon = '[/\\]'
-const noneIcon = '[--]'
+const downIcon = iconDown;
+const upIcon = iconUp;
+const noneIcon = iconDown;
 
 export type SuperSortPropsType = {
     id?: string
@@ -40,13 +42,13 @@ const SuperSort: React.FC<SuperSortPropsType> = (
             id={id + '-sort-' + value}
             onClick={onChangeCallback}
         >
-            {/*сделать иконку*/}
-            {/*<img*/}
-            {/*    id={id + '-icon-' + sort}*/}
-            {/*    src={icon}*/}
-            {/*/>*/}
+            <img
+                id={id + '-icon-' + sort}
+                src={icon}
+                alt='Icon Alt'
+            />
 
-            {icon} {/*а это убрать*/}
+            {/*{icon} /!*а это убрать*!/*/}
         </span>
     )
 }

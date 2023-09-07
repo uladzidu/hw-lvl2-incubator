@@ -1,11 +1,43 @@
 .pagination {
     display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 20px 0;
+}
+
+.text1,.text2 {
+    color: #0D0B0C;
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .text1 {
+    margin-left: 16px;
+}
 
+.text1:first-letter {
+    text-transform: uppercase;
 }
 
 .text2 {
 
+}
+
+.paginationSelect {
+    width: 56px;
+    height: 24px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid #ECEBEB;
+    background: #FFF;
+    color: #0D0B0C;
+    text-align: center;
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

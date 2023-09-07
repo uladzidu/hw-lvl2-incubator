@@ -40,6 +40,7 @@ const HW14 = () => {
                 // делает студент
                 // сохранить пришедшие данные
                 setTechs(res?.data.techs || []) // сетаем пришедшие данные в массив технологий
+                setLoading(false)
                 //
             })
     }
@@ -56,6 +57,7 @@ const HW14 = () => {
         const params = Object.fromEntries(searchParams) // makes object from array of pair values
         sendQuery(params.find || '')
         setFind(params.find || '')
+        setLoading(false)
     }, [])
 
     const mappedTechs = techs.map(t => (
@@ -77,7 +79,7 @@ const HW14 = () => {
                 />
 
                 <div id={'hw14-loading'} className={s.loading}>
-                    {isLoading ? '...ищем' : <br/>}
+                    {isLoading ? '...ищем' : ''}
                 </div>
 
                 {mappedTechs}

@@ -41,20 +41,25 @@ const getTechs = (params: ParamsType) => {
 const HW15 = () => {
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
-    const [count, setCount] = useState(4)
+    const [count, setCount] = useState(10)
     const [idLoading, setLoading] = useState(false)
-    const [totalCount, setTotalCount] = useState(100)
+    const [totalCount, setTotalCount] = useState(36)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: any) => {
+    const sendQuery = (params: ParamsType) => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
                 // делает студент
-
+                // console.log(params)
                 // сохранить пришедшие данные
-
+                // @ts-ignore
+                setTechs(res.data.techs)
+                // @ts-ignore
+                setTotalCount(res.data.totalCount)
+                // @ts-ignore
+                setSearchParams(params)
                 //
             })
     }
@@ -62,15 +67,12 @@ const HW15 = () => {
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
 
-        // setPage(
-        // setCount(
-
-        // sendQuery(
-        // setSearchParams(
-
+        setPage(newPage)
+        setCount(newCount)
+        sendQuery({page: newPage, count: newCount, sort : sort})
+        console.log('11111')
         //
     }
-
     const onChangeSort = (newSort: string) => {
         // делает студент
 
@@ -85,7 +87,7 @@ const HW15 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
+        sendQuery({page: +params.page, count: +params.count, sort: params.sort})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])

@@ -3,23 +3,31 @@
 }
 
 .developer {
-
+    border: solid cadetblue 1px;
 }
 
 .techHeader {
-    width: 50vw;
+    /*width: 50vw;*/
 }
 
 .developerHeader {
-
+    /*padding-right: 186px;*/
 }
 
 .row {
     display: flex;
+    width: 35%;
 }
 
 .rowHeader {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid red 1px;
+    background-color: #E5E5E5;
+    width: 606px;
+    height: 36px;
+    flex-shrink: 0;
 }
 
 .loading {
