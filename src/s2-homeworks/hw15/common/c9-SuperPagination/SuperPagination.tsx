@@ -17,17 +17,15 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     }
 ) => {
 
-    const lastPage = Math.floor(totalCount / itemsCountForPage) + 1 // пишет студент // вычислить количество страниц
-
-    const onChangeCallback = (event: any, page: number) => {
+    const lastPage = Math.ceil(totalCount / itemsCountForPage)   // пишет студент // вычислить количество страниц
+    const onChangeCallback = (event: ChangeEvent<unknown>, page: number) => {
         // пишет студент
         onChange(page, itemsCountForPage)
-        console.log(event)
     }
 
-    const onChangeSelect = (event: any) => {
+    const onChangeSelect = (event: number) => {
         // пишет студент
-        onChange(page, event)
+        onChange(1, event)
     }
 
     return (
