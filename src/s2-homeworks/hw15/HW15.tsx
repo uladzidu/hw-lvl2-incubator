@@ -40,6 +40,7 @@ const getTechs = (params: ParamsType) => {
         })
 }
 
+
 const HW15 = () => {
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
@@ -85,7 +86,7 @@ const HW15 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: +params.page, count: +params.count, sort: sort})
+        sendQuery({page: 1, count: 4, sort: ''})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
@@ -101,7 +102,6 @@ const HW15 = () => {
             </div>
         </div>
     ))
-
     return (
         <div id={'hw15'}>
             <div className={s2.hwTitle}>Homework #15</div>
